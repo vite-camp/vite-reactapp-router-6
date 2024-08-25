@@ -1,12 +1,23 @@
 import React from 'react'
-import { useParams, NavLink } from "react-router-dom";
+import {  useParams, useNavigate, NavLink, Route, Routes } from "react-router-dom";
+
+import { ItemDetails } from './ItemDetails'
 
 export const Item = (props) => {
-  const { items } = props
-  const { itemID } = useParams();
+  const { items } = props;
 
-  if (!items.length) return "SUCKER I WON!";
+  const { itemID } = useParams();
+  const navigate = useNavigate();
+
+  if (!items.length) {
+    navigate("/");  // Redirect to home if no items exist
+    return null;
+  }
+
   const item = items.find(item => item.id === parseInt(itemID));
+  if (!item) {
+    return <div>Item not found!</div>;
+  }
 
   return (
     <div className='item-wrapper'>
@@ -21,10 +32,14 @@ export const Item = (props) => {
       </div>
 
       <nav className='item-sub-nav'>
-        <NavLink to={`/description`}>Description</NavLink>
-        <NavLink to={`/shipping`}>Shipping</NavLink>
+        <NavLink to={`description`}>Description</NavLink>
+        <NavLink to={`shipping`}>Shipping</NavLink>
       </nav>
 
+      <Routes>
+        <Route path={`description`} element={<ItemDetails text={item.description} />} />
+        <Route path={`shipping`} element={<ItemDetails text={item.shipping} />} />
+      </Routes>
     </div>
   )
 }

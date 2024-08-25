@@ -29,9 +29,9 @@ export const  App =() => {
       </nav>
     
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/items-list/:itemID/*" element={<Item items={stock} />} />
         <Route path="/items-list" element={<ItemsList items={stock} />} />
-        <Route path="/items-list/:itemID" element={<Item items={stock} />} />
+        <Route path="/" element={<Home />} /><Route path="/items-list/:itemID/*" element={<Item />} />
       </Routes>
 
     </div>
