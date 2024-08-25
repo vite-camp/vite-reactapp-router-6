@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Route, Routes } from "react-router-dom";
 
-import data from '../data'
+import data from '../data';
+import { Home } from './Home';
 
 function fetchStock() {
   // fetchStock simulates getting data through axios.get(<URL>)
@@ -21,6 +23,10 @@ export const  App =() => {
         <div className='nav-links'>
         </div>
       </nav>
+    
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
 
     </div>
   )
