@@ -59,30 +59,30 @@ prepare the initial file: `index.html`, `src/index.jsx`, `src/components/App.jsx
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vite ReactApp</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="src/index.jsx"></script>
-  </body>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <script type="module" src="src/index.jsx" defer></script>
+    <title>React Router 6</title>
+</head>
+<body>
+<div id="root"></div>
+<!--    <script type="module" src="/src/index.jsx"></script>-->
+</body>
 </html>
 ```
 
 -   `src/index.jsx`
 
 ```js
-import React, { StrictMode } from 'react';  
-import { createRoot } from 'react-dom/client';
-import App from './components/App';     
+import React from 'react';
+import { createRoot } from "react-dom/client";
+import { App } from "./components/App";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+const container = document.getElementById("root");
+const root = createRoot(container)
+root.render(<App />);
 ```
 
 -   `src/components/App.jsx`
@@ -90,13 +90,11 @@ createRoot(document.getElementById('root')).render(
 ```js
 import React from 'react';
 
-const App = () => {
-  return (
-    <h1>Hello</h1>
-  );
+export const  App =() => {
+    return (<>
+        <h1>Hello world!</h1>
+    </>);
 };
-
-export default App;
 ```
 
 - install react react-dom
@@ -137,7 +135,7 @@ npx gitignore node
 
 ## Running this project
 
-This project is set up with [Parcel Bundler](https://parceljs.org/), an npm package
+This project is set up with [Vite](https://vitejs.dev/) and [React](https://react.dev/), a npm package
 that compiles our frontend assets and comes with an integrated development server.
 
 The dev server runs on port `5173` by default, but will use another if `5173` is
