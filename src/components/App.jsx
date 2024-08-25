@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import data from '../data';
 import { Home } from './Home';
+import { ItemsList } from './ItemsList';
 
 function fetchStock() {
   // fetchStock simulates getting data through axios.get(<URL>)
@@ -26,6 +27,7 @@ export const  App =() => {
     
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/items-list" element={<ItemsList items={stock} />} />
       </Routes>
 
     </div>

@@ -1,10 +1,11 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
-
-  const routeToShop = () => {
-
-  }
+    const navigate = useNavigate();
+    const routeToShop = () => {
+        navigate("/items-list");
+    }
 
   return (
     <div className='home-wrapper'>
