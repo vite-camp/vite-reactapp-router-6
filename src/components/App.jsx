@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 
 import data from '../data';
 import { Home } from './Home';
@@ -22,6 +22,8 @@ export const  App =() => {
       <nav>
         <h1 className='store-header'>Emily&apos;s Trinkets</h1>
         <div className='nav-links'>
+          <Link to="/">Home</Link>
+          <Link to="/items-list">Shop</Link>
         </div>
       </nav>
     
