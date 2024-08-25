@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 
 export const Item = (props) => {
   const { items } = props
@@ -19,6 +19,11 @@ export const Item = (props) => {
           <h4>${item.price}</h4>
         </div>
       </div>
+
+      <nav className='item-sub-nav'>
+        <NavLink to={`/description`}>Description</NavLink>
+        <NavLink to={`/shipping`}>Shipping</NavLink>
+      </nav>
 
     </div>
   )
